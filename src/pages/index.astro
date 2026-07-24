@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../lib/paths';
+import { formatDate } from '../lib/format';
+
+const lectures = await getCollection('lectures');
+const notes = (await getCollection('notes')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="学習の記録">
+  <div class="categories">
+    {
+      lectures.map((lecture) => (
+        <a class="category-tag" href={withBase(`lectures/${lecture.id}/`)}>
+          {lecture.data.title}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="card-grid">
+    {
+      notes.map((note) => {
+        const lectureSlug = note.id.split('/')[0];
+        const noteSlug = note.id.split('/')[1];
+        const lecture = lectures.find((l) => l.id === lectureSlug);
+        return (
+          <article class="card">
+            <div class="card-header">
+              <span class={`badge ${lecture?.data.subject}`}>{lecture?.data.title}</span>
+              <time datetime={note.data.date.toISOString().slice(0, 10)}>
+                {formatDate(note.data.date)}
+              </time>
+            </div>
+            <h2 class="card-title">{note.data.title}</h2>
+            <p class="card-excerpt">{note.data.excerpt}</p>
+            <a href={withBase(`lectures/${lectureSlug}/${noteSlug}/`)} class="read-more">
+              ノートを見る →
+            </a>
+          </article>
+        );
+      })
+    }
+  </div>
+</Layout>

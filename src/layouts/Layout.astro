@@ -1,0 +1,50 @@
+---
+import '../styles/global.css';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  backHref?: string;
+}
+
+const { title, subtitle = '', backHref } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        },
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo"><a href={withBase('/')}>学習の記録</a></h1>
+        <p class="subtitle">{subtitle}</p>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      {backHref && (
+        <a href={backHref} class="read-more">← 一覧へ戻る</a>
+      )}
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <p>&copy; De Nakazan</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { withBase } from '../../../lib/paths';
+import { formatDate } from '../../../lib/format';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => {
+    const [lectureSlug, noteSlug] = note.id.split('/');
+    return {
+      params: { lecture: lectureSlug, note: noteSlug },
+      props: { note },
+    };
+  });
+}
+
+const { note } = Astro.props;
+const lectureSlug = note.id.split('/')[0];
+const lectures = await getCollection('lectures');
+const lecture = lectures.find((l) => l.id === lectureSlug);
+const { Content } = await render(note);
+---
+
+<Layout
+  title={`${note.data.title} | 学習の記録`}
+  subtitle={lecture?.data.title}
+  backHref={withBase(`lectures/${lectureSlug}/`)}
+>
+  <article class="note-content">
+    <div class="card-header">
+      <span class={`badge ${lecture?.data.subject}`}>{lecture?.data.title}</span>
+      <time datetime={note.data.date.toISOString().slice(0, 10)}>{formatDate(note.data.date)}</time>
+    </div>
+    <h1 class="card-title">{note.data.title}</h1>
+    <Content />
+  </article>
+</Layout>
