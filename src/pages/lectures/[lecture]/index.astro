@@ -20,7 +20,7 @@ const notes = (await getCollection('notes'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<Layout title={`${lecture.data.title} | 学習の記録`} subtitle={lecture.data.title} backHref={withBase('/')}>
+<Layout title={`${lecture.data.title} | Memento`} subtitle={lecture.data.title} backHref={withBase('/')}>
   <Content />
 
   <div class="card-grid">
