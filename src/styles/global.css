@@ -167,8 +167,18 @@ time {
   margin: 1.2em 0 0.6em;
 }
 
-.note-content p {
+.note-content :is(p, pre, ul, ol) {
   margin-bottom: 1em;
+}
+
+.note-content pre {
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.note-content li {
+  margin-left: 1.2em;
 }
 
 /* フッター */
