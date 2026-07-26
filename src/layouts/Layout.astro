@@ -7,9 +7,10 @@ interface Props {
   title: string;
   subtitle?: string;
   backHref?: string;
+  narrow?: boolean;
 }
 
-const { title, subtitle = '', backHref } = Astro.props;
+const { title, subtitle = '', backHref, narrow = false } = Astro.props;
 const lectures = await getCollection('lectures');
 ---
 
@@ -49,10 +50,12 @@ const lectures = await getCollection('lectures');
 
     <main class="main-content">
       <div class="container">
-        {backHref && (
-          <a href={backHref} class="read-more">← 一覧へ戻る</a>
-        )}
-        <slot />
+        <div class={narrow ? 'content-narrow' : ''}>
+          {backHref && (
+            <a href={backHref} class="read-more">← 一覧へ戻る</a>
+          )}
+          <slot />
+        </div>
       </div>
     </main>
 

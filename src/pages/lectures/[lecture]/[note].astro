@@ -26,6 +26,7 @@ const { Content } = await render(note);
   title={`${note.data.title} | Memento`}
   subtitle={lecture?.data.title}
   backHref={withBase(`lectures/${lectureSlug}/`)}
+  narrow
 >
   <article class="note-content">
     <div class="card-header">

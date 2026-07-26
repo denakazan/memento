@@ -176,9 +176,14 @@ time {
   text-decoration: underline;
 }
 
-.main-content > .read-more {
+.container .read-more {
   display: inline-block;
   margin-bottom: 24px;
+}
+
+.content-narrow {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* ノート本文 */
