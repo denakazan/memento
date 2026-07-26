@@ -29,9 +29,10 @@ body {
 
 .header-inner {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 24px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px 40px;
 }
 
 .brand {
@@ -62,15 +63,13 @@ body {
   padding: 40px 0;
 }
 
-/* カテゴリタグ(横スクロールする1行のバー) */
+/* カテゴリタグ(最大2行まで折り返し、それ以上は縦スクロール) */
 .categories {
   display: flex;
-  flex-wrap: nowrap;
-  flex: 1;
-  min-width: 0;
+  flex-wrap: wrap;
   gap: 6px;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  max-height: 64px;
+  overflow-y: auto;
 }
 
 .category-tag {
