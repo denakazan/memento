@@ -62,15 +62,13 @@ body {
   padding: 40px 0;
 }
 
-/* カテゴリタグ(ブランドと同じ行を維持しつつ、残り幅の中で最大2行まで折り返し) */
+/* カテゴリタグ(ブランドと同じ行を維持しつつ、残り幅の中で必要な分だけ折り返し) */
 .categories {
   display: flex;
   flex-wrap: wrap;
   flex: 1;
   min-width: 0;
   gap: 6px;
-  max-height: 64px;
-  overflow-y: auto;
 }
 
 .category-tag {
