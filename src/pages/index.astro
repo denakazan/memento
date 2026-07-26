@@ -11,16 +11,6 @@ const notes = (await getCollection('notes')).sort(
 ---
 
 <Layout title="Memento" subtitle="講義ノート集">
-  <div class="categories">
-    {
-      lectures.map((lecture) => (
-        <a class="category-tag" href={withBase(`lectures/${lecture.id}/`)}>
-          {lecture.data.title}
-        </a>
-      ))
-    }
-  </div>
-
   <div class="card-grid">
     {
       notes.map((note) => {
@@ -28,7 +18,7 @@ const notes = (await getCollection('notes')).sort(
         const noteSlug = note.id.split('/')[1];
         const lecture = lectures.find((l) => l.id === lectureSlug);
         return (
-          <article class="card">
+          <a class="card" href={withBase(`lectures/${lectureSlug}/${noteSlug}/`)}>
             <div class="card-header">
               <span class={`badge ${lecture?.data.subject}`}>{lecture?.data.title}</span>
               <time datetime={note.data.date.toISOString().slice(0, 10)}>
@@ -37,10 +27,7 @@ const notes = (await getCollection('notes')).sort(
             </div>
             <h2 class="card-title">{note.data.title}</h2>
             <p class="card-excerpt">{note.data.excerpt}</p>
-            <a href={withBase(`lectures/${lectureSlug}/${noteSlug}/`)} class="read-more">
-              ノートを見る →
-            </a>
-          </article>
+          </a>
         );
       })
     }

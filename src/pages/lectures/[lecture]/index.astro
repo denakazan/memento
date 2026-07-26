@@ -31,7 +31,7 @@ const notes = (await getCollection('notes'))
         notes.map((note) => {
           const noteSlug = note.id.split('/')[1];
           return (
-            <article class="card">
+            <a class="card" href={withBase(`lectures/${lecture.id}/${noteSlug}/`)}>
               <div class="card-header">
                 <span class={`badge ${lecture.data.subject}`}>{lecture.data.title}</span>
                 <time datetime={note.data.date.toISOString().slice(0, 10)}>
@@ -40,10 +40,7 @@ const notes = (await getCollection('notes'))
               </div>
               <h2 class="card-title">{note.data.title}</h2>
               <p class="card-excerpt">{note.data.excerpt}</p>
-              <a href={withBase(`lectures/${lecture.id}/${noteSlug}/`)} class="read-more">
-                ノートを見る →
-              </a>
-            </article>
+            </a>
           );
         })
       )
