@@ -16,9 +16,8 @@ body {
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  padding: 0 24px;
 }
 
 /* ヘッダー */
@@ -30,10 +29,9 @@ body {
 
 .header-inner {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px 40px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 24px;
 }
 
 .brand {
@@ -64,20 +62,25 @@ body {
   padding: 40px 0;
 }
 
-/* カテゴリタグ */
+/* カテゴリタグ(横スクロールする1行のバー) */
 .categories {
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 8px;
+  flex-wrap: nowrap;
+  flex: 1;
+  min-width: 0;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .category-tag {
   background-color: #e9ecef;
   color: #495057;
-  padding: 6px 16px;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  flex-shrink: 0;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s;
