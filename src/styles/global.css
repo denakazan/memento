@@ -198,8 +198,24 @@ time {
   margin: 1.2em 0 0.6em;
 }
 
-.note-content :is(p, pre, ul, ol) {
+.note-content :is(p, pre, ul, ol, table) {
   margin-bottom: 1em;
+}
+
+.note-content table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.note-content :is(th, td) {
+  border: 1px solid #e9ecef;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.note-content th {
+  background-color: #f8f9fa;
+  font-weight: 600;
 }
 
 .note-content pre {
