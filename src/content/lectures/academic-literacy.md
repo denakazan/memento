@@ -1,4 +1,4 @@
 ---
 title: "アカデミックリテラシー"
-subject: "math"
+color: "gray"
 ---

@@ -20,7 +20,7 @@ const notes = (await getCollection('notes')).sort(
         return (
           <a class="card" href={withBase(`lectures/${lectureSlug}/${noteSlug}/`)}>
             <div class="card-header">
-              <span class={`badge ${lecture?.data.subject}`}>{lecture?.data.title}</span>
+              <span class={`badge ${lecture?.data.color}`}>{lecture?.data.title}</span>
               <time datetime={note.data.date.toISOString().slice(0, 10)}>
                 {formatDate(note.data.date)}
               </time>

@@ -29,7 +29,7 @@ const { Content } = await render(note);
 >
   <article class="note-content">
     <div class="card-header">
-      <span class={`badge ${lecture?.data.subject}`}>{lecture?.data.title}</span>
+      <span class={`badge ${lecture?.data.color}`}>{lecture?.data.title}</span>
       <time datetime={note.data.date.toISOString().slice(0, 10)}>{formatDate(note.data.date)}</time>
     </div>
     <h1 class="card-title">{note.data.title}</h1>

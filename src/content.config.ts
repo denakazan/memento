@@ -6,7 +6,10 @@ const lectures = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/lectures' }),
   schema: z.object({
     title: z.string(),
-    subject: z.enum(['math', 'science', 'cs', 'english']),
+    color: z.enum([
+      'blue', 'green', 'yellow', 'violet', 'red', 'pink', 'grape',
+      'indigo', 'cyan', 'teal', 'lime', 'orange', 'gray', 'brown', 'slate',
+    ]),
   }),
 });
 

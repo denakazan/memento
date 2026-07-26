@@ -1,4 +1,4 @@
 ---
 title: "コンピューターリテラシー"
-subject: "cs"
+color: "lime"
 ---

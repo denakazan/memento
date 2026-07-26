@@ -130,10 +130,21 @@ body {
   border-radius: 4px;
 }
 
-.badge.math { background-color: #e7f5ff; color: #1c7ed6; }
-.badge.cs { background-color: #ebfbee; color: #2b8a3e; }
-.badge.science { background-color: #fff9db; color: #f59f00; }
-.badge.english { background-color: #f3f0ff; color: #7048e8; }
+.badge.blue { background-color: #e7f5ff; color: #1c7ed6; }
+.badge.green { background-color: #ebfbee; color: #2b8a3e; }
+.badge.yellow { background-color: #fff9db; color: #f59f00; }
+.badge.violet { background-color: #f3f0ff; color: #7048e8; }
+.badge.red { background-color: #fff5f5; color: #e03131; }
+.badge.pink { background-color: #fff0f6; color: #c2255c; }
+.badge.grape { background-color: #f8f0fc; color: #9c36b5; }
+.badge.indigo { background-color: #edf2ff; color: #3b5bdb; }
+.badge.cyan { background-color: #e3fafc; color: #0c8599; }
+.badge.teal { background-color: #e6fcf5; color: #0ca678; }
+.badge.lime { background-color: #f4fce3; color: #66a80f; }
+.badge.orange { background-color: #fff4e6; color: #e8590c; }
+.badge.gray { background-color: #f1f3f5; color: #495057; }
+.badge.brown { background-color: #fbf0e4; color: #a3621b; }
+.badge.slate { background-color: #eef2f6; color: #4a5a6a; }
 
 time {
   font-size: 0.8rem;
